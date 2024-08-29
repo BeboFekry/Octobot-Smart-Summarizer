@@ -70,9 +70,9 @@ st.sidebar.info("Octobot")
 st.sidebar.write("Summarize from:")
 link = st.sidebar.text_input("Link")
 bt = st.sidebar.button("Summarize")
-st.sidebar.button("test")
 st.sidebar.write("---")
 file = st.sidebar.file_uploader("Browse Files...", type=["pdf", "txt"])
+bt_file = st.sidebar.button("Summarize ")
 
 for m in st.session_state.messages:
     if m.type == "system":
@@ -91,12 +91,13 @@ else:
     answer = chatting(message=message)
     st.chat_message("assistant").markdown(answer)
 
-if file is not None:
-    with open(file.name, 'wb') as f:
-        f.write(file.getbuffer())
-    answer = chatting(type='file', path=file.name)
-    st.chat_message("assistant").markdown(answer)
-    del file
+if bt_file:
+    if file is not None:
+        with open(file.name, 'wb') as f:
+            f.write(file.getbuffer())
+        answer = chatting(type='file', path=file.name)
+        st.chat_message("assistant").markdown(answer)
+        del file
 
 if bt:
     if link is not "":
