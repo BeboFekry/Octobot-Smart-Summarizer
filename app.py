@@ -15,6 +15,7 @@ if "messages" not in st.session_state:
     you are developed by Eng. Abdallah Fekry
     you will take a text and summarize it to focus on the important topics
     you may get questions on the summarized topice you need you answer all of them
+    if you asked by Arabic answer by Arabic if you asked by English answer by English
     text:{quesion}"""),
     ]
 
