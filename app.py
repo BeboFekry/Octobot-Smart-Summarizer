@@ -29,11 +29,11 @@ def web_scrap(url):
   return doc
 
 def file_scrap(path):
+  st.write(path)
   if path.split('.')[1] == "pdf":
     loader = PDFPlumberLoader(path)
   else:
     loader = TextLoader(path)
-  st.write(path)
   doc = loader.load()
   d = ""
   for i in doc:
