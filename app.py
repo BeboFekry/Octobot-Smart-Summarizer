@@ -92,7 +92,7 @@ if file is not None:
     with open(f"file.name", 'wb') as f:
         f.write(file.getbuffer())
     st.write(file.name)
-    answer = chatting(type='file', path=f"{file.name}")
+    answer = chatting(type='file', path=f"/{file.name}")
     st.chat_message("assistant").markdown(answer)
 
 if link is not "":
