@@ -69,6 +69,7 @@ st.info("Easy Summarize your text documents, Web contents, LinkedIn posts, pdf, 
 st.sidebar.info("Octobot")
 st.sidebar.write("Summarize from:")
 link = st.sidebar.text_input("Link")
+bt = st.sidebar.button("Summarize")
 st.sidebar.write("---")
 file = st.sidebar.file_uploader("Browse Files...", type=["pdf", "txt"])
 
@@ -95,11 +96,10 @@ if file is not None:
     answer = chatting(type='file', path=file.name)
     st.chat_message("assistant").markdown(answer)
     del file
-if link is not "":
-    # is_valid = validators.url(link)
-    # if is_valid:
-    answer = chatting(type="link", link=link)
-    st.chat_message("assistant").markdown(answer)
-    del link    
-# else:
-        # print("Invalid URL")
+
+if bt:
+    if link is not "":
+        # is_valid = validators.url(link)
+        # if is_valid:
+        answer = chatting(type="link", link=link)
+        st.chat_message("assistant").markdown(answer)
