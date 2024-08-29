@@ -4,7 +4,7 @@ from langchain.schema import SystemMessage, HumanMessage, AIMessage
 import bs4
 from langchain.document_loaders import PDFPlumberLoader, TextLoader
 import requests
-import validators
+# import validators
 
 API = "AIzaSyBIvw7QEbrnN7HJTBqxu6CI_r7egCWf5tU"
 
