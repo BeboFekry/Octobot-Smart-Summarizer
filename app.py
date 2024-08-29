@@ -100,5 +100,6 @@ if link is not "":
     # if is_valid:
     answer = chatting(type="link", link=link)
     st.chat_message("assistant").markdown(answer)
-    # else:
+    del link    
+# else:
         # print("Invalid URL")
