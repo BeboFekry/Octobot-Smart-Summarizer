@@ -3,3 +3,4 @@ langchain_google_genai
 langchain
 langchain_community
 beautifulsoup4
+pdfplumber
