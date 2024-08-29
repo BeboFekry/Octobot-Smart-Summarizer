@@ -41,11 +41,11 @@ def file_scrap(path):
 
 def summarize(m, type="message"):
     st.session_state.messages.append(HumanMessage(content=m))
-    answer = st.session_state.chat(st.session_state.messages).content
+    answer = st.session_state.chat(st.session_state.messages)
     if type !="message":
         del st.session_state.messages[-1]
-    st.session_state.messages.append(AIMessage(content=answer))
-    return answer
+    st.session_state.messages.append(answer)
+    return answer.content
 
 def chatting(type="message", link="", path="", message=""):
     if type == 'link':
