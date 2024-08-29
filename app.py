@@ -61,7 +61,7 @@ def chatting(type="message", link="", path="", message=""):
       answer = summarize(message, type=type)
     return answer
 
-st.columns([1,1,1])[1].image("chatbot.png")
+st.columns([1,1,1])[1].image("Clipped_image_20240829_150510.png")
 st.header("Octobot")
 st.info("Easy Summarize your text documents, Web contents, LinkedIn posts, pdf, and text files...")
 
