@@ -42,9 +42,9 @@ def file_scrap(path):
 def summarize(m, type="message"):
     st.session_state.messages.append(HumanMessage(content=m))
     answer = st.session_state.chat(st.session_state.messages).content
-    st.session_state.messages.append(AIMessage(content=answer))
     if type !="message":
         del st.session_state.messages[-1]
+    st.session_state.messages.append(AIMessage(content=answer))
     return answer
 
 def chatting(type="message", link="", path="", message=""):
