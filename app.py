@@ -29,7 +29,6 @@ def web_scrap(url):
   return doc
 
 def file_scrap(path):
-  st.write(path)
   if path.split('.')[1] == "pdf":
     loader = PDFPlumberLoader(path)
   else:
@@ -90,9 +89,9 @@ else:
     st.chat_message("assistant").markdown(answer)
 
 if file is not None:
-    with open(f"file.name", 'wb') as f:
+    with open(file.name, 'wb') as f:
         f.write(file.getbuffer())
-    answer = chatting(type='file', path=f"/{file.name}")
+    answer = chatting(type='file', path=file.name)
     st.chat_message("assistant").markdown(answer)
 
 if link is not "":
