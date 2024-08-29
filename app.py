@@ -70,6 +70,7 @@ st.sidebar.info("Octobot")
 st.sidebar.write("Summarize from:")
 link = st.sidebar.text_input("Link")
 bt = st.sidebar.button("Summarize")
+st.sidebar.button("test")
 st.sidebar.write("---")
 file = st.sidebar.file_uploader("Browse Files...", type=["pdf", "txt"])
 
