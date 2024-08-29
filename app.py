@@ -93,7 +93,7 @@ if file is not None:
         f.write(file.getbuffer())
     answer = chatting(type='file', path=file.name)
     st.chat_message("assistant").markdown(answer)
-
+    del file
 if link is not "":
     # is_valid = validators.url(link)
     # if is_valid:
