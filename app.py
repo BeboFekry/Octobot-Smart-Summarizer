@@ -11,6 +11,7 @@ API = "AIzaSyBIvw7QEbrnN7HJTBqxu6CI_r7egCWf5tU"
 if "messages" not in st.session_state:
     st.session_state.messages = [
         SystemMessage(content="""you are a helpfull AI assistant with main task to summarize documents
+    your name is Octobot
     you will take a text and summarize it to focus on the important topics
     you may get questions on the summarized topice you need you answer all of them
     text:{quesion}"""),
