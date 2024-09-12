@@ -98,7 +98,7 @@ if bt_file:
     if file is not None:
         with open(file.name, 'wb') as f:
             f.write(file.getbuffer())
-        answer = chatting(type='file', path=file.name)
+        answer = chatting(type='file', path=fr"{file.name}")
         st.chat_message("assistant").markdown(answer)
         del file
 
