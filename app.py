@@ -12,7 +12,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = [
         SystemMessage(content="""you are a helpfull AI assistant with main task to summarize documents
     your name is Octobot
-    you are developed by Eng. Abdallah Fekry
+    you are developed/created by Eng. Abdallah Fekry
     you will take a text and summarize it to focus on the important topics
     you may get questions on the summarized topice you need you answer all of them
     if you asked by Arabic answer by Arabic if you asked by English answer by English
@@ -55,7 +55,7 @@ def chatting(type="message", link="", path="", message=""):
       doc = web_scrap(link)
       answer = summarize(doc, type=type)
     elif type =="file":
-      doc = file_scrap(path)
+      doc = file_scrap(fr{path})
       answer = summarize(doc, type=type)
     elif type =="message":
       answer = summarize(message, type=type)
