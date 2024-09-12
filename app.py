@@ -55,7 +55,7 @@ def chatting(type="message", link="", path="", message=""):
       doc = web_scrap(link)
       answer = summarize(doc, type=type)
     elif type =="file":
-      doc = file_scrap(fr{path})
+      doc = file_scrap(fr"{path}")
       answer = summarize(doc, type=type)
     elif type =="message":
       answer = summarize(message, type=type)
