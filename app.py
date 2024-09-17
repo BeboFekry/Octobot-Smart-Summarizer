@@ -5,10 +5,13 @@ import bs4
 from langchain.document_loaders import PDFPlumberLoader, TextLoader
 import requests
 import json
+import os
 # import validators
 
-with open("api.json", 'r') as f:
-    API = json.load(f)['API']
+# with open("api.json", 'r') as f:
+#     API = json.load(f)['API']
+
+API = os.getenv("API")
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
