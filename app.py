@@ -4,9 +4,11 @@ from langchain.schema import SystemMessage, HumanMessage, AIMessage
 import bs4
 from langchain.document_loaders import PDFPlumberLoader, TextLoader
 import requests
+import json
 # import validators
 
-API = "AIzaSyBIvw7QEbrnN7HJTBqxu6CI_r7egCWf5tU"
+with open("api.json", 'r') as f:
+    API = json.load(f)['API']
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
