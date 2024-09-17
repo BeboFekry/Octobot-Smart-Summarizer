@@ -2,7 +2,8 @@ import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 import bs4
-from langchain.document_loaders import PDFPlumberLoader, TextLoader
+# from langchain.document_loaders import PDFPlumberLoader, TextLoader
+from langchain_community.document_loaders import PDFPlumberLoader, TextLoader
 import requests
 import json
 import os
