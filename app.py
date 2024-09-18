@@ -105,7 +105,7 @@ if bt_file:
         del file
 
 if bt:
-    if link is not "":
+    if link != "":
         # is_valid = validators.url(link)
         # if is_valid:
         answer = chatting(type="link", link=link)
