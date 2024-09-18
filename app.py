@@ -6,9 +6,8 @@ import bs4
 from langchain_community.document_loaders import PDFPlumberLoader, TextLoader
 import requests
 import json
-import os
 
-API = os.getenv("API")
+API = st.secrets["API"]
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
