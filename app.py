@@ -84,7 +84,9 @@ for m in st.session_state.messages:
         st.chat_message("user").markdown(m.content)
     else:
         st.chat_message("assistant").markdown(m.content)
-st.write("---")
+
+if st.session_state.messages is not null:
+    st.write("---")
 
 message = st.chat_input("Say something")
 
