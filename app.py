@@ -65,7 +65,7 @@ def chatting(type="message", link="", path="", message=""):
 st.columns([1,1,1])[1].image("Clipped_image_20240829_150510.png")
 st.header("Octobot")
 st.info("Easy Summarize your text documents, Web contents, LinkedIn posts, pdf, and text files...")
-
+st.write("---")
 # for m in st.session_state.messages:
 #     with st.chat_message(m['role']):
 #         st.markdown(m['content'])
@@ -84,7 +84,7 @@ for m in st.session_state.messages:
         st.chat_message("user").markdown(m.content)
     else:
         st.chat_message("assistant").markdown(m.content)
-    st.write("---")
+st.write("---")
 
 message = st.chat_input("Say something")
 
