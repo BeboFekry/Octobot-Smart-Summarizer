@@ -79,6 +79,7 @@ def youtube_scrapper(url):
           for entry in transcript:
               f.write(entry.text)
       with open("subtitles.txt", "r", encoding='utf-8') as f:
+          st.write(f.read())
           return f.read()
   except Exception as e:
      return f"Error: {e}"
