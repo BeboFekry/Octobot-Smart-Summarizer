@@ -25,7 +25,7 @@ if "messages" not in st.session_state:
     ]
 
 if "chat" not in st.session_state:
-    st.session_state.chat = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=st.session_state.API, temprature=0)
+    st.session_state.chat = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=st.session_state.API, temprature=0)
 
 def web_scrap(url):
   response = requests.get(url)
