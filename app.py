@@ -3,21 +3,18 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.schema import SystemMessage, HumanMessage, AIMessage
 import bs4
 from langchain.document_loaders import PDFPlumberLoader, TextLoader
-# from langchain_community.document_loaders import PDFPlumberLoader, TextLoader
 import requests
-import json
+from youtube_transcript_api import YouTubeTranscriptApi
+from urllib.parse import urlparse, parse_qs
+import validators
 
 API = st.secrets["API"]
 
 if "messages" not in st.session_state:
+    with open("prompt.txt", 'r') as f:
+      prompt = f.read()
     st.session_state.messages = [
-        SystemMessage(content="""you are a helpfull AI assistant with main task to summarize documents
-    your name is Octobot
-    you are developed/created by Eng. Abdallah Fekry
-    you will take a text and summarize it to focus on the important topics
-    you may get questions on the summarized topice you need you answer all of them
-    if you asked by Arabic answer by Arabic if you asked by English answer by English
-    text:{quesion}"""),
+        SystemMessage(content=prompt),
     ]
 
 if "chat" not in st.session_state:
@@ -43,11 +40,37 @@ def file_scrap(path):
     d += i.page_content
   return d
 
+def extract_video_id(url):
+    parsed_url = urlparse(url)
+    if parsed_url.hostname == 'youtu.be':
+        return parsed_url.path[1:]
+    elif parsed_url.hostname in ('www.youtube.com', 'youtube.com'):
+        if parsed_url.path == '/watch':
+            return parse_qs(parsed_url.query)['v'][0]
+        elif parsed_url.path.startswith('/embed/'):
+            return parsed_url.path.split('/')[2]
+        elif parsed_url.path.startswith('/v/'):
+            return parsed_url.path.split('/')[2]
+    return None
+
+def youtube_scrapper(url):
+  video_id = extract_video_id(url)
+  try:
+      ty_api = YouTubeTranscriptApi()
+      transcript = ty_api.fetch(video_id, languages=['ar','en'])
+      with open("subtitles.txt", "w", encoding='utf-8') as f:
+          for entry in transcript:
+              f.write(entry.text)
+      with open("subtitles.txt", "r", encoding='utf-8') as f:
+          return f.read()
+  except Exception as e:
+     return f"Error: {e}"
+
 def summarize(m, type="message"):
     st.session_state.messages.append(HumanMessage(content=m))
     answer = st.session_state.chat(st.session_state.messages)
-    if type !="message":
-        del st.session_state.messages[-1]
+    # if type !="message":
+    #     del st.session_state.messages[-1]
     st.session_state.messages.append(answer)
     return answer.content
 
@@ -56,38 +79,53 @@ def chatting(type="message", link="", path="", message=""):
       doc = web_scrap(link)
       answer = summarize(doc, type=type)
     elif type =="file":
-      doc = file_scrap(fr"{path}")
+      doc = file_scrap(path)
       answer = summarize(doc, type=type)
     elif type =="message":
       answer = summarize(message, type=type)
+    elif type=="youtube_link":
+      doc = youtube_scrapper(link)
+      answer = summarize(doc, type=type)
     return answer
 
-st.columns([1,1,1])[1].image("Clipped_image_20240829_150510.png")
-st.header("Octobot")
+st.columns([1,1,1])[1].image("images/chatbot.png")
+st.columns([2.37,2,2])[1].header("Octobot")
 st.info("Easy Summarize your text documents, Web contents, LinkedIn posts, pdf, and text files...")
-st.write("---")
-# for m in st.session_state.messages:
-#     with st.chat_message(m['role']):
-#         st.markdown(m['content'])
-st.sidebar.info("Octobot")
-st.sidebar.write("Summarize from:")
-link = st.sidebar.text_input("Link")
+
+# st.sidebar.info("Octobot")
+st.sidebar.write("**Summarize from:**")
+web_link = st.sidebar.text_input("Webpage Link")
 bt = st.sidebar.button("Summarize")
+if bt and web_link=="":
+   st.sidebar.error("Please enter web link!")
+elif bt and not validators.url(web_link):
+   st.sidebar.error("Error: Invalid web url!")
+   web_link = ""
+st.sidebar.write("---")
+youtube_link = st.sidebar.text_input("YouTube Video Link")
+bt_youtube = st.sidebar.button(" Summarize")
+if bt_youtube and youtube_link=="":
+   st.sidebar.error("Please enter youtube link!")
+elif bt_youtube and not validators.url(youtube_link):
+   st.sidebar.error("Error: Invalid youtube url!")
+   youtube_link = ""
 st.sidebar.write("---")
 file = st.sidebar.file_uploader("Browse Files...", type=["pdf", "txt"])
 bt_file = st.sidebar.button("Summarize ")
 
+st.write('---')
 for m in st.session_state.messages:
     if m.type == "system":
         continue
     if m.type == "human":
-        st.chat_message("user").markdown(m.content)
+        if len(m.content)>500:
+           continue
+        else:
+          st.chat_message("user").markdown(m.content)
     else:
         st.chat_message("assistant").markdown(m.content)
 
-st.write("---")
-
-message = st.chat_input("Say something")
+message = st.chat_input("Say something...")
 
 if message is None:
     pass
@@ -95,18 +133,27 @@ else:
     st.chat_message("user").markdown(message)
     answer = chatting(message=message)
     st.chat_message("assistant").markdown(answer)
+    st.write("---")
 
 if bt_file:
     if file is not None:
-        with open(file.name, 'wb') as f:
-            f.write(file.getbuffer())
-        answer = chatting(type='file', path=fr"{file.name}")
-        st.chat_message("assistant").markdown(answer)
-        del file
+        with st.spinner("Please wait, loading file content..."):
+          with open(file.name, 'wb') as f:
+              f.write(file.getbuffer())
+          answer = chatting(type='file', path=file.name)
+          st.chat_message("assistant").markdown(answer)
+          del file
+    else:
+       st.sidebar.error("Please add pdf file!")
 
 if bt:
-    if link != "":
-        # is_valid = validators.url(link)
-        # if is_valid:
-        answer = chatting(type="link", link=link)
-        st.chat_message("assistant").markdown(answer)
+    if web_link is not "":
+        with st.spinner("Please wait, loading web content..."):
+          answer = chatting(type="link", link=web_link)
+          st.chat_message("assistant").markdown(answer)
+
+if bt_youtube:
+    if youtube_link is not "":
+        with st.spinner("Please wait, loading YouTube content..."):
+          answer = chatting(type="youtube_link", link=youtube_link)
+          st.chat_message("assistant").markdown(answer)
