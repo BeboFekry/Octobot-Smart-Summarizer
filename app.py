@@ -7,6 +7,7 @@ import requests
 from youtube_transcript_api import YouTubeTranscriptApi
 from urllib.parse import urlparse, parse_qs
 import validators
+from youtube_transcript_api.proxies import WebshareProxyConfig
 
 st.set_page_config(page_title="Octobot", page_icon='images/chatbot.png')
 
@@ -59,9 +60,20 @@ def youtube_scrapper(url):
   ip = '59.29.182.162'
   port = '8888'
   proxies = {'https':f'{ip}:{port}'}
+
+#   ytt_api = YouTubeTranscriptApi(
+    
+# )
   video_id = extract_video_id(url)
   try:
-      ty_api = YouTubeTranscriptApi()
+      username = st.secrets['proxy_username']
+      password = st.secrets['proxy_password']
+      ty_api = YouTubeTranscriptApi(
+        proxy_config=WebshareProxyConfig(
+          proxy_username=username,
+          proxy_password=password,
+        )
+      )
       transcript = ty_api.fetch(video_id, languages=['ar','en'], proxies=proxies)
       with open("subtitles.txt", "w", encoding='utf-8') as f:
           for entry in transcript:
