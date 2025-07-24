@@ -8,8 +8,10 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from urllib.parse import urlparse, parse_qs
 import validators
 
-API = st.secrets["API"]
+st.set_page_config(page_title="Octobot", page_icon='images/chatbot.png')
 
+if 'API' not in st.session_state:
+  st.session_state.API = st.secrets["API"]
 if "messages" not in st.session_state:
     with open("prompt.txt", 'r') as f:
       prompt = f.read()
@@ -18,7 +20,7 @@ if "messages" not in st.session_state:
     ]
 
 if "chat" not in st.session_state:
-    st.session_state.chat = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=API, temprature=0)
+    st.session_state.chat = ChatGoogleGenerativeAI(model="gemini-1.5-flash", google_api_key=st.session_state.API, temprature=0)
 
 def web_scrap(url):
   response = requests.get(url)
