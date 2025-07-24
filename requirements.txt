@@ -4,3 +4,4 @@ langchain_community
 beautifulsoup4
 pdfplumber
 youtube-transcript-api
+validators
