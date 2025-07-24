@@ -66,10 +66,7 @@ Run the app:
 -->
 [![Watch the video](images/thumbnail.jpg)](images/test_video.mp4)
 
-<video width="600" controls>
-  <source src="/images/test_video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+[🎬 Watch the Demo Video]([https://drive.google.com/your-video-link](https://github.com/BeboFekry/Octobot-Smart-Summarizer/blob/main/images/test_video.mp4))
 
 ---
 
