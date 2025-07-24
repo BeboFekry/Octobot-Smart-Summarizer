@@ -61,11 +61,10 @@ Run the app:
 
 <!DOCTYPE html>
 <html>
-<body>
-<iframe src="https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/preview" width="640" height="480" allow="autoplay"></iframe>  
-<iframe allowfullscreen="allowfullscreen" src="your_page_url/preview" ></iframe>
-
-</body>
+  <body>
+    <iframe src="https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/preview" width="640" height="480" allow="autoplay"></iframe>  
+    <iframe allowfullscreen="allowfullscreen" src="https://github.com/BeboFekry/Octobot-Smart-Summarizer/edit/main/README.md/preview" ></iframe>
+  </body>
 </html>
 
 ---
