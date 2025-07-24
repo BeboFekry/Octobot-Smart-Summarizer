@@ -1,26 +1,16 @@
 # Octobot - Smart Summarizer
-Scrapping and Summaryzing text documents, web contents, LinkedIn posts, pdf, and text files
-Link: https://octobot.streamlit.app/
 
-# Smart ATS System using RAG
+Scrapping and summaryzing text, pdf and text document files, web contents, LinkedIn posts, pdf, and YouTube videos content.
 
-Smart Applicant Tracking System (ATS) that uses advanced NLP and RAG (Retrieval-Augmented Generation) that can search for the best candidates from a vector database of resumes and recommend the best one using a Large Language Model LLM (Google Gemini)
+[Link](https://octobot.streamlit.app/)
 
 ## Key Points
-- Collected data from several resources as resume pdf documents using file scrappers, resume images using OCR model, text from CSV files using Pandas into a Vector Database using Chroma DB.
-- Built a retrieval system that retrieved most similar documents to the job description.
-- Embedded an LLM model to collect and reformat the retrieved documents and the job description to recommend the best candidate fit the job.
-- Designed a user friendly graphical interface using Streamlit with a integrated job description samples to try and testing the app.
-
----
-
-
-## 📌 Overview
-
-This project enhances the traditional ATS by:
-- Parsing and understanding resumes using AI
-- Matching resumes with job descriptions
-- Answering questions based on stored CV data using a RAG-based QA pipeline
+- Scrapping web pages to get web content.
+- Scrapping YouTube videos links to get text subtitles in Arabic or English languages.
+- Scrapping text files (PDF & Text) to get text content.
+- Summarizing the text contents using smart chatbot with message history based on LLM model (Google Gemini) using Langchain, focus on the important notes, and adding Q/A.
+- Chatbot can talking to the users, summarizing text messages, answering questions on the summarized contents, and can help users to use the web page explaining step by step.
+- Designed a user friendly graphical interface using Streamlit.
 
 ---
 
@@ -28,13 +18,11 @@ This project enhances the traditional ATS by:
 
 - **Graphical Interface**: Streamlit
 - **Backend**: Python
-- **Vector Store**: ChromaDB
-- **LLM**: Google Gemini
-- **Embeddings**: `sentence-transformers`
-- **Other Libraries**: pandas, langchain, sentence_transformers.
+- **LLM**: Google Gemini (gemini-2.5-flash)
+- **Other Libraries**: langchain, sentence_transformers, beautiful_soup, youtube_transcript_api, validators.
 
 ---
-
+<!--
 ## 📂 Project Structure
 
 ```
@@ -53,6 +41,7 @@ Smart-ATS/
 ```
 
 ---
+-->
 
 ## 🚀 Getting Started
 
@@ -64,9 +53,10 @@ Install required packages:
 
 Run the app:
 
-`streamlit run st_app.py`
+`streamlit run app.py`
 
 ---
+<!---
 
 ## Screenshots
 
@@ -78,12 +68,7 @@ Run the app:
 ![Screenshot 6](images/Screenshot6.png)
 
 ---
-
-## Resources:
-
-[huggingface pdf resumes dataset](https://huggingface.co/datasets/d4rk3r/resumes-raw-pdf) | [Kaggle pdf resumes dataset](https://www.kaggle.com/datasets/snehaanbhawal/resume-dataset?resource=download) | [Kaggle CSV file dataset](https://www.kaggle.com/datasets/gauravduttakiit/resume-dataset) | [Kaggle image resumes dataset](https://www.kaggle.com/datasets/youssefkhalil/resumes-images-datasets)
-
----
+-->
 
 ## Contact
 
