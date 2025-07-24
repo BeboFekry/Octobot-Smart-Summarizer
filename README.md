@@ -57,7 +57,7 @@ Run the app:
 ---
 
 ## Screenshots
-[🎬 Watch the Demo Video](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing)
+🎬 [Watch the Demo Video](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing)
 
 ---
 
