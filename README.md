@@ -57,7 +57,7 @@ Run the app:
 ---
 
 ## Screenshots
-[🎬 Watch the Demo Video](https://github.com/BeboFekry/Octobot-Smart-Summarizer/blob/main/images/test_video.mp4)
+[🎬 Watch the Demo Video](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing)
 
 ---
 
