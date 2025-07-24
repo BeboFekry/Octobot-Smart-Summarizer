@@ -11,6 +11,10 @@ from youtube_transcript_api.proxies import WebshareProxyConfig
 
 st.set_page_config(page_title="Octobot", page_icon='images/chatbot.png')
 
+st.columns([1,1,1])[1].image("images/chatbot.png", width=175)
+st.columns([2.1,2,2])[1].header("Octobot")
+st.info("Easy Summarize your text documents, Web contents, LinkedIn posts, pdf, and text files...")
+
 if 'API' not in st.session_state:
   st.session_state.API = st.secrets["API"]
 if "messages" not in st.session_state:
@@ -100,10 +104,6 @@ def chatting(type="message", link="", path="", message=""):
       doc = youtube_scrapper(link)
       answer = summarize(doc, type=type)
     return answer
-
-st.columns([1,1,1])[1].image("images/chatbot.png")
-st.columns([2.37,2,2])[1].header("Octobot")
-st.info("Easy Summarize your text documents, Web contents, LinkedIn posts, pdf, and text files...")
 
 # st.sidebar.info("Octobot")
 st.sidebar.write("**Summarize from:**")
