@@ -61,9 +61,6 @@ def extract_video_id(url):
     return None
 
 def youtube_scrapper(url):
-  ip = '59.29.182.162'
-  port = '8888'
-  proxies = {'https':f'{ip}:{port}'}
   video_id = extract_video_id(url)
   try:
       username = st.secrets['proxy_username']
