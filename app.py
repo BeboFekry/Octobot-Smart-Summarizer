@@ -74,12 +74,11 @@ def youtube_scrapper(url):
           proxy_password=password,
         )
       )
-      transcript = ty_api.fetch(video_id, languages=['ar','en'], proxies=proxies)
+      transcript = ty_api.fetch(video_id, languages=['ar','en'])
       with open("subtitles.txt", "w", encoding='utf-8') as f:
           for entry in transcript:
               f.write(entry.text)
       with open("subtitles.txt", "r", encoding='utf-8') as f:
-          st.write(f.read())
           return f.read()
   except Exception as e:
      return f"Error: {e}"
