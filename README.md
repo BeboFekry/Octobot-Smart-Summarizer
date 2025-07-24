@@ -67,7 +67,7 @@ Run the app:
 [![Watch the video](images/thumbnail.jpg)](images/test_video.mp4)
 
 <video width="600" controls>
-  <source src="images/test_video.mp4" type="video/mp4">
+  <source src="/images/test_video.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
