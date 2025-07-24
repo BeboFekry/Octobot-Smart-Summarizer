@@ -55,19 +55,16 @@ Run the app:
 `streamlit run app.py`
 
 ---
-<!---
 
 ## Screenshots
-
-![Screenshot 1](images/Screenshot1.png)
-![Screenshot 2](images/Screenshot2.png)
-![Screenshot 3](images/Screenshot3.png)
-![Screenshot 4](images/Screenshot4.png)
-![Screenshot 5](images/Screenshot5.png)
-![Screenshot 6](images/Screenshot6.png)
+<!--
+[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/vt5fpE0bzSY)
+-->
+<video src="images/test_video.mp4" controls width="600">
+  Your browser does not support the video tag.
+</video>
 
 ---
--->
 
 ## Contact
 
