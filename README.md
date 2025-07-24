@@ -2,6 +2,7 @@
 
 Scrapping and summaryzing text, pdf and text document files, web contents, LinkedIn posts, pdf, and YouTube videos content.
 
+**Project Link**:
 [Link](https://octobot.streamlit.app/)
 
 ## Key Points
@@ -48,11 +49,9 @@ Smart-ATS/
 ### 🔧 Prerequisites
 
 Install required packages:
-
 `pip install -r requirements.txt`
 
 Run the app:
-
 `streamlit run app.py`
 
 ---
