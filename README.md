@@ -2,7 +2,7 @@
 
 Scrapping and summaryzing text, pdf and text document files, web contents, LinkedIn posts, pdf, and YouTube videos content.
 
-**Try the Project**:
+**Try The Project**:
 [Link](https://octobot.streamlit.app/)
 
 ## Key Points
