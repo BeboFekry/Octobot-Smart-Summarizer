@@ -59,7 +59,9 @@ Run the app:
 ## Screenshots
 🎬 [Watch the Demo Video](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing)
 
+<!--
 [![Watch the video](images/chatbot.png)]([https://raw.githubusercontent.com/username/repository/branch/path/to/video.mp4](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing))
+-->
 
 ---
 
