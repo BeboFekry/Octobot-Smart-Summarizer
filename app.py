@@ -11,7 +11,7 @@ from youtube_transcript_api.proxies import WebshareProxyConfig
 
 st.set_page_config(page_title="Octobot", page_icon='images/chatbot.png')
 
-st.columns([1,1,1])[1].image("images/chatbot.png", width=175)
+st.columns([1,1,1])[1].image("images/chatbot.png", width=150)
 st.columns([2.1,2,2])[1].header("Octobot")
 st.info("Easy Summarize your text documents, Web contents, LinkedIn posts, pdf, and text files...")
 
