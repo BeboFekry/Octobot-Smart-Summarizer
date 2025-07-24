@@ -59,13 +59,7 @@ Run the app:
 ## Screenshots
 🎬 [Watch the Demo Video](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing)
 
-<!DOCTYPE html>
-<html>
-  <body>
-    <iframe src="https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/preview" width="640" height="480" allow="autoplay"></iframe>  
-    <iframe allowfullscreen="allowfullscreen" src="https://github.com/BeboFekry/Octobot-Smart-Summarizer/edit/main/README.md/preview" ></iframe>
-  </body>
-</html>
+[![Watch the video](images/chatbot.png)]([https://raw.githubusercontent.com/username/repository/branch/path/to/video.mp4](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing))
 
 ---
 
