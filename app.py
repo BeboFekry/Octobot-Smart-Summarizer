@@ -56,10 +56,13 @@ def extract_video_id(url):
     return None
 
 def youtube_scrapper(url):
+  ip = '59.29.182.162'
+  port = '8888'
+  proxies = {'https':f'{ip}:{port}'}
   video_id = extract_video_id(url)
   try:
       ty_api = YouTubeTranscriptApi()
-      transcript = ty_api.fetch(video_id, languages=['ar','en'])
+      transcript = ty_api.fetch(video_id, languages=['ar','en'], proxies=proxies)
       with open("subtitles.txt", "w", encoding='utf-8') as f:
           for entry in transcript:
               f.write(entry.text)
