@@ -66,7 +66,7 @@ Run the app:
 -->
 [![Watch the video](images/thumbnail.jpg)](images/test_video.mp4)
 
-[🎬 Watch the Demo Video]([https://drive.google.com/your-video-link](https://github.com/BeboFekry/Octobot-Smart-Summarizer/blob/main/images/test_video.mp4))
+[🎬 Watch the Demo Video]([https://github.com/BeboFekry/Octobot-Smart-Summarizer/blob/main/images/test_video.mp4])
 
 ---
 
