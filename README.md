@@ -57,14 +57,11 @@ Run the app:
 ---
 
 ## Screenshots
-<!--
-[![Watch the video](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/vt5fpE0bzSY)
+🎬 [Watch the Demo Video](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing)
 
-<video src="images/test_video.mp4" controls width="600">
-  Your browser does not support the video tag.
-</video>
+<!--
+[![Watch the video](images/chatbot.png)]([https://raw.githubusercontent.com/username/repository/branch/path/to/video.mp4](https://drive.google.com/file/d/114VXBHbowapdFN8XHSlGwLOKbcWkFiJ9/view?usp=sharing))
 -->
-[![Watch the video](images/thumbnail.jpg)](images/test_video.mp4)
 
 ---
 
